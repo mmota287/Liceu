@@ -9,11 +9,11 @@ namespace Liceu.Dominio.Servicos
 {
     public class LivroServico : ILivroServico
     {
-        private readonly IRepositorio<Livro, Guid> _repositorio;
+        private readonly IRepositorio<Livro> _repositorio;
 
-        public IRepositorio<User, string> repositorio { get; set; }
+        public IRepositorio<User> repositorio { get; set; }
 
-        public LivroServico(IRepositorio<Livro, Guid> repositorio)
+        public LivroServico(IRepositorio<Livro> repositorio)
         {
             _repositorio = repositorio;
         }

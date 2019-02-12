@@ -10,5 +10,16 @@ namespace Liceu.Seguranca.Dados.Contexto
             : base(options)
         {
         }
+
+        public DbSet<UsuarioApp> Usuarios { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<UsuarioApp>()
+                .HasOne(p=>p.UsuarioAplicacao);
+
+
+            base.OnModelCreating(builder);
+        }
     }
 }

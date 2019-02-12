@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace Liceu.Dados.Repositorios
 {
-    public class Repositorio<TEntity, TKey> : IRepositorio<TEntity, TKey> where TEntity : Entidade
+    public class Repositorio<TEntity> : IRepositorio<TEntity> where TEntity : Entidade
     {
         protected readonly LiceuDbContext Db;
         protected readonly DbSet<TEntity> DbSet;
@@ -31,7 +31,7 @@ namespace Liceu.Dados.Repositorios
             return entidade;
         }
 
-        public TEntity RetornarPorId(TKey id)
+        public TEntity RetornarPorId(Guid id)
         {
             return DbSet.Find(id);
         }

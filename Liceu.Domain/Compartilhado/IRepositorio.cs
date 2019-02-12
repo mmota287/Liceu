@@ -6,11 +6,11 @@ using System.Text;
 
 namespace Liceu.Dominio.Compartilhado
 {
-    public interface IRepositorio<TEntity, TKey> where TEntity : Entidade
+    public interface IRepositorio<TEntity> where TEntity : Entidade
     {
         TEntity Inserir(TEntity obj);
 
-        TEntity RetornarPorId(TKey id);
+        TEntity RetornarPorId(Guid id);
 
         IQueryable<TEntity> RetornarTodos();
 

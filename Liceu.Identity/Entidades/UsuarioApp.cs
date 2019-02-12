@@ -4,7 +4,12 @@ using System.Text;
 
 namespace Liceu.Seguranca.Entidades
 {
-    class UsuarioApp
+    public class UsuarioApp
     {
+        public int IdUsuario { get; set; }
+
+        public string Cpf { get; set; }
+
+        public virtual UsuarioAplicacao UsuarioAplicacao { get; set; }
     }
 }
