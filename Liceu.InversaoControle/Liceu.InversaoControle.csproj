@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+ 
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Liceu.Data\Liceu.Dados.csproj" />
+    <ProjectReference Include="..\Liceu.Domain\Liceu.Dominio.csproj" />
+    <ProjectReference Include="..\Liceu.Identity\Liceu.Seguranca.csproj" />
+  </ItemGroup>
+
+</Project>

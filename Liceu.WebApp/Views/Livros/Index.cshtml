@@ -1,0 +1,98 @@
+﻿@model IndexPageModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="row">
+
+    <div class="col-md-8">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Titulo
+                    </th>
+                    <th>
+                        Ano
+                    </th>
+                    <th>
+                        Autor
+                    </th>
+                    <th>
+                        Editora
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Livros)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Titulo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ano)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Autor)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Editora)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Reservar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+
+        <form asp-action="Filtrar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="FiltroModel.Titulo" class="control-label"></label>
+                        <input asp-for="FiltroModel.Titulo" class="form-control" />
+                        <span asp-validation-for="FiltroModel.Titulo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FiltroModel.Ano" class="control-label"></label>
+                        <input asp-for="FiltroModel.Ano" class="form-control" />
+                        <span asp-validation-for="FiltroModel.Ano" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label asp-for="FiltroModel.Autor" class="control-label"></label>
+                        <input asp-for="FiltroModel.Autor" class="form-control" />
+                        <span asp-validation-for="FiltroModel.Autor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FiltroModel.Editora" class="control-label"></label>
+                        <input asp-for="FiltroModel.Editora" class="form-control" />
+                        <span asp-validation-for="FiltroModel.Editora" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Aplicar Filtro" class="btn btn-primary" />
+                @if (Model.FiltroAplicado)
+                {
+                    <a asp-action="Index" type="button" class="btn btn-success">Desfazer Filtro</a>
+                }
+            </div>
+        </form>
+
+    </div>
+</div>
+
